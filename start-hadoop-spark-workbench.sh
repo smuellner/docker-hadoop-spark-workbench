@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker-compose down
+docker network remove spark
 docker-compose up -d
 
 my_ip=`ip route get 1|awk '{print $NF;exit}'`
