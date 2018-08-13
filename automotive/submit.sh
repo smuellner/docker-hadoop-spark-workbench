@@ -9,8 +9,7 @@ export YARN_CONF_DIR="./etc"
 # ${SPARK_SUBMIT} --master spark://127.0.0.1:7077 \
 spark-submit --master spark://127.0.0.1:7077 \
 --deploy-mode client \
---driver-memory 1g \
---executor-memory 1g \
---executor-cores 1 \
-automotive.py \
-1000
+--driver-memory 512m \
+--executor-memory 512m \
+--executor-cores 2 \
+automotive.py
