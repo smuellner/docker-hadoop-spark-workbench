@@ -6,7 +6,7 @@
 To Install all necessary
 
 ```
- curl https://raw.githubusercontent.com/smuellner/docker-hadoop-spark-workbench/master/install/install.sh | sudo bash
+curl https://raw.githubusercontent.com/smuellner/docker-hadoop-spark-workbench/master/install/install.sh | bash
 ```
 
 # How to use HDFS/Spark Workbench
