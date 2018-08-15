@@ -1,5 +1,14 @@
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/big-data-europe/docker-hadoop-spark-workbench)
 
+
+# Install on Ubuntu and debian
+
+To Install all necessary
+
+```
+  curl https://github.com/smuellner/docker-hadoop-spark-workbench/blob/master/tools/install.sh | sudo bash
+```
+
 # How to use HDFS/Spark Workbench
 
 To start an HDFS/Spark Workbench:
@@ -7,11 +16,11 @@ To start an HDFS/Spark Workbench:
     docker-compose up -d
 ```
 
-docker-compose does not work to scale up spark-workers, for distributed setup see [swarm folder](./swarm) 
+docker-compose does not work to scale up spark-workers, for distributed setup see [swarm folder](./swarm)
 
 ## Starting workbench with Hive support
 
-Before starting the next command, check that the previous service is running correctly (with docker logs servicename).
+Before starting the next command, check that the previous service is running correctly (with docker logs service name).
 ```
 docker-compose -f docker-compose-hive.yml up -d namenode hive-metastore-postgresql
 docker-compose -f docker-compose-hive.yml up -d datanode hive-metastore
