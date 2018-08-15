@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # For now we assume this is debian or Ubuntu
 # ./install/install.sh
@@ -73,6 +73,7 @@ echo '###Cloning the Repository..'
 mkdir -p ${HOME}/projects
 cd ${HOME}/projects
 git clone https://github.com/smuellner/docker-hadoop-spark-workbench.git
+echo WHOAMI: ${WHOAMI}
 sudo chown -R ${WHOAMI} ${HOME}/projects/docker-hadoop-spark-workbench
 cd ${HOME}/projects/docker-hadoop-spark-workbench
 git pull
