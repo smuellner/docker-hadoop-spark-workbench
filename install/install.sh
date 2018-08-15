@@ -43,6 +43,7 @@ if [[ $platform == 'linux' ]]; then
 else
         DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 fi
+WHOAMI=`whoami`
 # ------------- variables --------------------
 
 ## Update packages and Upgrade system
@@ -56,6 +57,9 @@ sudo apt-get install git -y
 echo '###Installing Docker..'
 curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
+
+echo '###Configure Docker..'
+sudo usermod -aG docker ${WHOAMI}
 
 echo '###Installing Docker Compose..'
 sudo apt install docker-compose
