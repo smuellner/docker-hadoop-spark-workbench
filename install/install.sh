@@ -50,34 +50,58 @@ fi
 WHOAMI=`whoami`
 # ------------- variables --------------------
 
-## Update packages and Upgrade system
-sudo apt-get update -y
+if [[ $platform == 'linux' ]]; then
 
-## Git ##
-echo '###Installing Git..'
-sudo apt-get install git -y
+   echo '###Install on Linux'
 
-## Docker ##
-echo '###Installing Docker..'
-curl -fsSL get.docker.com -o get-docker.sh
-sh get-docker.sh
+   ## Update packages and Upgrade system
+   sudo apt-get update -y
 
-echo '###Configure Docker..'
-sudo usermod -aG docker ${WHOAMI}
+   ## Git ##
+   echo '###Installing Git..'
+   sudo apt-get install git -y
 
-echo '###Installing Docker Compose..'
-sudo apt-get install docker-compose -y
+   ## Docker ##
+   echo '###Installing Docker..'
+   curl -fsSL get.docker.com -o get-docker.sh
+   sh get-docker.sh
 
-## Cloning Repository ##
-echo '###Cloning the Repository..'
-mkdir -p ${HOME}/projects
-cd ${HOME}/projects
-git clone https://github.com/smuellner/docker-hadoop-spark-workbench.git
-echo WHOAMI: ${WHOAMI}
-sudo chown -R ${WHOAMI} ${HOME}/projects/docker-hadoop-spark-workbench
-cd ${HOME}/projects/docker-hadoop-spark-workbench
-git pull
+   echo '###Configure Docker..'
+   sudo usermod -aG docker ${WHOAMI}
 
-## Install Tools ##
-echo '###Installing Tools..'
-${HOME}/projects/docker-hadoop-spark-workbench/tools/install.sh
+   echo '###Installing Docker Compose..'
+   sudo apt-get install docker-compose -y
+
+   ## Cloning Repository ##
+   echo '###Cloning the Repository..'
+   mkdir -p ${HOME}/projects
+   cd ${HOME}/projects
+   git clone https://github.com/smuellner/docker-hadoop-spark-workbench.git
+   echo WHOAMI: ${WHOAMI}
+   sudo chown -R ${WHOAMI} ${HOME}/projects/docker-hadoop-spark-workbench
+   cd ${HOME}/projects/docker-hadoop-spark-workbench
+   git pull
+
+   ## Install Tools ##
+   echo '###Installing Tools..'
+   ${HOME}/projects/docker-hadoop-spark-workbench/tools/install.sh
+
+else
+
+   echo '###Install on macos'
+
+   ## Cloning Repository ##
+   echo '###Cloning the Repository..'
+   mkdir -p ${HOME}/projects
+   cd ${HOME}/projects
+   git clone https://github.com/smuellner/docker-hadoop-spark-workbench.git
+   echo WHOAMI: ${WHOAMI}
+   sudo chown -R ${WHOAMI} ${HOME}/projects/docker-hadoop-spark-workbench
+   cd ${HOME}/projects/docker-hadoop-spark-workbench
+   git pull
+
+   ## Install Tools ##
+   echo '###Installing Tools..'
+   ${HOME}/projects/docker-hadoop-spark-workbench/tools/install.sh
+
+fi
