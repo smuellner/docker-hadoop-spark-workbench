@@ -1,6 +1,23 @@
 #!/bin/bash
-service docker restart
 
-docker-compose up -d
+# ------------- variables --------------------
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+fi
 
-service docker status
+# ------------- variables --------------------
+
+if [[ $platform == 'linux' ]]; then
+
+  service docker restart
+
+  docker-compose up -d
+
+  service docker status
+
+else
+
+  docker-compose up -d
+
+fi
