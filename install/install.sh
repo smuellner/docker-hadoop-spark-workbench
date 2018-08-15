@@ -73,7 +73,9 @@ echo '###Cloning the Repository..'
 mkdir -p ${HOME}/projects
 cd ${HOME}/projects
 git clone https://github.com/smuellner/docker-hadoop-spark-workbench.git
+sudo chown -R ${WHOAMI} ${HOME}/projects/docker-hadoop-spark-workbench
 cd ${HOME}/projects/docker-hadoop-spark-workbench
+git pull
 
 ## Install Tools ##
 echo '###Installing Tools..'
