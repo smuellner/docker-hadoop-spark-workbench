@@ -6,14 +6,14 @@
 To Install all necessary
 
 ```
-  curl https://github.com/smuellner/docker-hadoop-spark-workbench/blob/master/tools/install.sh | sudo bash
+ curl https://raw.githubusercontent.com/smuellner/docker-hadoop-spark-workbench/master/install/install.sh | sudo bash
 ```
 
 # How to use HDFS/Spark Workbench
 
 To start an HDFS/Spark Workbench:
 ```
-    docker-compose up -d
+docker-compose up -d
 ```
 
 docker-compose does not work to scale up spark-workers, for distributed setup see [swarm folder](./swarm)
