@@ -38,7 +38,11 @@ export CAT BASH FIND GREP CUT SED MKDIR CHMOD CHOWN CURL;
 # ------------- system commands used by this script --------------------
 
 # ------------- variables --------------------
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+if [[ $platform == 'linux' ]]; then
+        DIR=$(dirname "$(readlink -f "$0")")
+else
+        DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+fi
 # ------------- variables --------------------
 
 ## Update packages and Upgrade system
@@ -53,8 +57,11 @@ echo '###Installing Docker..'
 curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
 
+echo '###Installing Docker Compose..'
+sudo apt install docker-compose
+
 ## Cloning Repository ##
-echo '###Installing Docker..'
+echo '###Cloning the Repository..'
 mkdir -p ${HOME}/projects
 cd ${HOME}/projects
 git clone https://github.com/smuellner/docker-hadoop-spark-workbench.git

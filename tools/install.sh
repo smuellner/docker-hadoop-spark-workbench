@@ -37,7 +37,11 @@ export CAT BASH FIND GREP CUT SED MKDIR CHMOD CHOWN CURL;
 # ------------- system commands used by this script --------------------
 
 # ------------- variables --------------------
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+if [[ $platform == 'linux' ]]; then
+        DIR=$(dirname "$(readlink -f "$0")")
+else
+        DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+fi
 # Hadoop
 HADOOP_NAME="hadoop"
 HADOOP_VERSION="2.8.4"
