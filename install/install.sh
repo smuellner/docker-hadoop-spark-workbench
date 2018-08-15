@@ -62,7 +62,7 @@ echo '###Configure Docker..'
 sudo usermod -aG docker ${WHOAMI}
 
 echo '###Installing Docker Compose..'
-sudo apt install docker-compose
+sudo apt-get install docker-compose -y
 
 ## Cloning Repository ##
 echo '###Cloning the Repository..'
