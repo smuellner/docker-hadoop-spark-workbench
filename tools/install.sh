@@ -37,6 +37,10 @@ export CAT BASH FIND GREP CUT SED MKDIR CHMOD CHOWN CURL;
 # ------------- system commands used by this script --------------------
 
 # ------------- variables --------------------
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+fi
 if [[ $platform == 'linux' ]]; then
         DIR=$(dirname "$(readlink -f "$0")")
 else
