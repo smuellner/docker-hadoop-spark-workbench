@@ -55,11 +55,13 @@ HADOOP_ARCHIVE="${HADOOP_FOLDER_NAME}.${HADOOP_EXTENSION}"
 HADOOP_URL="http://www-eu.apache.org/dist/hadoop/common/${HADOOP_NAME}-${HADOOP_VERSION}/${HADOOP_ARCHIVE}"
 # Spark
 SPARK_NAME="spark"
-SPARK_VERSION="2.1.0"
+#SPARK_VERSION="2.1.0"
+SPARK_VERSION="2.3.1"
 SPARK_EXTENSION="tgz"
 SPARK_FOLDER_NAME="${SPARK_NAME}-${SPARK_VERSION}-bin-hadoop2.7"
 SPARK_ARCHIVE="${SPARK_FOLDER_NAME}.${SPARK_EXTENSION}"
 SPARK_URL="https://archive.apache.org/dist/spark/${SPARK_NAME}-${SPARK_VERSION}/${SPARK_ARCHIVE}"
+
 # ------------- variables --------------------
 
 ${MKDIR} ${DIR}/bin/
