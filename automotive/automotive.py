@@ -18,7 +18,7 @@ rdd = accelerations.join(gyroscopes, accelerations.timestamp == gyroscopes.times
 # positions = spark.read.csv("hdfs://192.168.0.104/user/automotive/positions.csv", header=True, mode="DROPMALFORMED")
 # rdd = joined.join(positions, on=['trip_id', 'timestamp'], how='left_outer').rdd
 # rdd = rdd.map(lambda x: (x[0], x[1:])).groupByKey().mapValues(list).collect()
-rdd.coalesce(1)
+rdd = rdd.coalesce(1)
 rdd.saveAsTextFile("hdfs://" + datanode + "/user/automotive/join.txt")
 # rdd.saveAsHadoopFile("hdfs://" + datanode + "/user/automotive/a.txt", "org.apache.hadoop.mapred.TextOutputFormat")
 spark.stop()
